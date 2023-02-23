@@ -1,0 +1,20 @@
+server:
+  port: ${CONFIG_PORT:8889}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:${EUREKA_PORT:8761}/eureka}
+    registerWithEureka: true
+    
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false
+        git:
+          uri: file:///${user.home}/desarrollo/workspaces/2019-12/spring-cloud
+          searchPaths: config-repo
